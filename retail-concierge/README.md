@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Real-Time Retail Concierge
 
-## Getting Started
+An AI-powered retail assistant built for the **Google Cloud Rapid Agent Hackathon: Building Agents for Real-World Challenges**. 
 
-First, run the development server:
+* **Live Demo:** [https://retail-concierge-262035403755.us-central1.run.app](https://retail-concierge-262035403755.us-central1.run.app)
+* **Partner Track:** MongoDB
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 💡 Inspiration
+With the massive shift towards digital shopping, brick-and-mortar retail often struggles to provide the same level of instant, personalized search. We wanted to build an agent that brings the digital concierge experience into the physical retail world—helping shoppers find exactly what they need, even if they only have a photo of it.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ What it does
+The Retail Concierge is a real-time, multimodal AI agent that helps shoppers find products in a store catalog.
+- **Multimodal Search:** Users can type what they are looking for or upload a photo of a product.
+- **Semantic Matching:** Using Gemini embeddings and MongoDB Vector Search, it finds the most relevant products instantly based on deep semantic meaning, not just keyword matching.
+- **Interactive Chat:** The agent converses naturally with the user, referencing live prices, features, and inventory stock before allowing them to add items directly to their cart.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ How we built it
+- **Frontend & Backend:** Next.js (React)
+- **AI Brain & Embeddings:** Google Gemini (Gemini 2.5 Flash / Flash-Lite, and `gemini-embedding-2`)
+- **Vector Database (Partner Tech):** MongoDB Atlas Vector Search
+- **Deployment:** Google Cloud Run
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+We generated product embeddings using Google Gemini's embedding model and stored them in MongoDB Atlas. When a user queries the app or uploads an image, the backend uses Gemini to describe the image, generates an embedding for the search context, and performs a `$vectorSearch` aggregation against our MongoDB products collection. Finally, Gemini 2.5 Flash is fed the search results as context to power the conversational interface.
 
-## Learn More
+## 🧠 Challenges we ran into
+- **Multimodal Context:** Getting the AI to perfectly blend an uploaded image with a text query required an intermediate step where Gemini first described the image before we vectorized the description.
+- **Deployment Permissions:** We had to configure the correct IAM permissions for Google Cloud Build to properly access our storage buckets and deploy the container to Cloud Run.
 
-To learn more about Next.js, take a look at the following resources:
+## 🏆 Accomplishments that we're proud of
+- Seamlessly integrating MongoDB Vector Search with Google Gemini's latest embedding models to return sub-second search results.
+- Successfully deploying a polished, production-ready application to Google Cloud Run.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📚 What we learned
+We learned how incredibly powerful combining **MongoDB Atlas Vector Search** with **Google Gemini** can be for building agents. The ability to retrieve precise catalog data and feed it to a reasoning engine completely changes how we can build user experiences.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 What's next for Retail Concierge
+- **In-Store Navigation:** Integrating indoor mapping so the agent can tell the user exactly which aisle the product is located in.
+- **Voice Interface:** Adding speech-to-text so users can talk to the concierge hands-free.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Local Setup Instructions
+1. Clone the repository
+2. Run `npm install`
+3. Add your `GEMINI_API_KEY` and `MONGODB_URI` to `.env.local`.
+4. Run `npm run dev` and navigate to `http://localhost:3000`.
