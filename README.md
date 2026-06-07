@@ -1,9 +1,23 @@
-# Real-Time Retail Concierge
+<div align="center">
+  <img src="hero.png" alt="Retail Concierge Banner" width="100%">
+  
+  # Real-Time Retail Concierge
+  
+  **An AI-powered retail assistant built for the Google Cloud Rapid Agent Hackathon: Building Agents for Real-World Challenges.**
 
-An AI-powered retail assistant built for the **Google Cloud Rapid Agent Hackathon: Building Agents for Real-World Challenges**. 
+  [![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+  [![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com)
+  [![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)](https://cloud.google.com/)
+  [![Gemini](https://img.shields.io/badge/Gemini-%238E75B2.svg?style=for-the-badge&logo=google&logoColor=white)](https://deepmind.google/technologies/gemini/)
 
-* **Live Demo:** [https://retail-concierge-262035403755.us-central1.run.app](https://retail-concierge-262035403755.us-central1.run.app)
-* **Partner Track:** MongoDB
+  <br />
+  
+  * **Live Demo:** [https://retail-concierge-262035403755.us-central1.run.app](https://retail-concierge-262035403755.us-central1.run.app)
+  * **Partner Track:** MongoDB
+
+</div>
+
+<br />
 
 ## 💡 Inspiration
 With the massive shift towards digital shopping, brick-and-mortar retail often struggles to provide the same level of instant, personalized search. We wanted to build an agent that brings the digital concierge experience into the physical retail world—helping shoppers find exactly what they need, even if they only have a photo of it.
